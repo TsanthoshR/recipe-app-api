@@ -36,3 +36,20 @@ docker-compose up
     git add .
     git commit -am "Added Github Actions"
     git push origin
+
+## Django Test framework
+ based on unittest
+    Test client - dummy web browser
+    Simulate authentication
+    Temporary Database
+
+Django REST Framework
+    API test client
+    tests.py or tests/test_ with __init__.py
+    
+Test databases  
+     Test -> clears Data every time , can override this behaviour
+
+Test classes
+    SimpleTestCase - No DB
+    TestCase - With DB
