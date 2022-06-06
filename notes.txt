@@ -71,4 +71,6 @@ Test classes
     MagicMok/Mock
     patch
 
+### Django REST Framework APIClient
+
     
