@@ -11,3 +11,8 @@ def add(x, y):
         y (_type_): second number
     """
     return x + y
+
+def subtract(x,y):
+    """subtract y from x"""
+    
+    return x-y
