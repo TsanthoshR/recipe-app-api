@@ -18,3 +18,17 @@ docker-compose run --rm app sh -c "flake8"  # or "python -m flake8"
 docker-compose run --rm app sh -c "django-admin startproject app ."
 
 docker-compose up
+
+
+# GitHub Actions
+    Automation tool
+    similar to Travis-CI , Gitlab CI/CD , Jenkins
+    Run Jobs when Code changes
+
+    Common uses:
+        Deployment   Devops Deployment Automation with Terraform, AWS and Docker
+        Code linting
+        Unit tests
+
+    Trigger ?
+        Code Pushed to Github - > Run unit Tests -> Result
