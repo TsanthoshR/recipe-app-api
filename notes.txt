@@ -32,3 +32,7 @@ docker-compose up
 
     Trigger ?
         Code Pushed to Github - > Run unit Tests -> Result
+
+    git add .
+    git commit -am "Added Github Actions"
+    git push origin
