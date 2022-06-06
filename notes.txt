@@ -53,3 +53,22 @@ Test databases
 Test classes
     SimpleTestCase - No DB
     TestCase - With DB
+
+## Mocking 
+    Override or change behaviour of dependencies
+    Avoid unintended side effects
+    Isolate code being tested
+    Avoid relying on external services
+    Avoid accidentally sending emails
+
+    Example 
+        register_user() - > user_in_db() ->send_welcome_email()
+
+    speed up test
+        check_db() ->sleep() loop back
+
+    unittest.mock
+    MagicMok/Mock
+    patch
+
+    
