@@ -4,4 +4,7 @@ exclude=
     migrations,
     __pycache__,
     manage.py,
-    settings.py
+    *settings.py,
+per-file-ignores =
+    admin.py: F401 # imported but unused
+    models.py: F401 # imported but unused

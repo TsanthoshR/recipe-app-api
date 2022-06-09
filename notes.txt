@@ -89,3 +89,7 @@ psycopg2 : compiles from source, requires additional dependencies, easy with doc
     postgresql-dev
     musl-dev
     
+## problrm with Docker compose depends_on 
+    Dosen't ensure that the application is running 
+
+    docker-compose run --rm app sh -c "python manage.py startapp core"
