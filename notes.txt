@@ -73,4 +73,19 @@ Test classes
 
 ### Django REST Framework APIClient
 
+
+Psycopg2 -> postgresql adapter for django 
+
+psycopg2-binary  : dev env only
+psycopg2 : compiles from source, requires additional dependencies, easy with docker
+
+    C compiler
+    python3-dev
+    libpq-dev 
+
+    Equivalent packages for alipine :
+    postgresql-client
+    build-base
+    postgresql-dev
+    musl-dev
     

@@ -16,16 +16,24 @@ ARG DEV=false
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    # install postgresql-client client package insdie alpine to connect psycopg2 to postgres
+    apk add --update --no-cache postgresql-client && \ 
+    # sets virtual depen package which can be removed later
+    apk add --update --no-cache --virtual .tmp-build-deps \
+    # install packages for postgres
+    build-base postgresql-dev musl-dev && \
+    #install python requirements
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ] ; \
-        then /py/bin/pip install -r /tmp/requirements.dev.txt && \
-        echo "$DEV, here" ;\
+    then /py/bin/pip install -r /tmp/requirements.dev.txt && \
+    echo "$DEV, here" ;\
     fi && \
     rm -rf /tmp && \
+    apk del .tmp-build-deps && \
     adduser \
-        --disabled-password \
-        --no-create-home \
-        django-user
+    --disabled-password \
+    --no-create-home \
+    django-user
 
 ENV PATH="/py/bin:$PATH"
 
