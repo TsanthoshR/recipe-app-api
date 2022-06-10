@@ -93,3 +93,21 @@ psycopg2 : compiles from source, requires additional dependencies, easy with doc
     Dosen't ensure that the application is running 
 
     docker-compose run --rm app sh -c "python manage.py startapp core"
+
+## Database Migrations 
+
+    Django ORM (Object Relational Mapper)
+    Define Models -> Generate Migration files -> Setup Database -> Store Data
+    
+    Model Contains :
+        Name 
+        Fields 
+        Other Metadata 
+        Custom Python Code
+
+    Ensure app id enabled in settings.py
+    Use Django CLI
+        python manage.py makemigrations
+
+    Apply migrations -> Django CLI -> python manage.py migrate
+    Run it after waiting for databases
