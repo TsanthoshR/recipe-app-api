@@ -6,8 +6,8 @@ exclude=
     manage.py,
     settings.py,
 
-per-file-ignores =
-    admin.py: F401 
-    models.py: F401 
+; per-file-ignores =
+;     admin.py: F401 
+;     models.py: F401 
 
 ; F401 imported but unused
