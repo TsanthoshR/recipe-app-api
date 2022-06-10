@@ -46,22 +46,22 @@ docker-compose up
 Django REST Framework
     API test client
     tests.py or tests/test_ with __init__.py
-    
-Test databases  
+
+Test databases
      Test -> clears Data every time , can override this behaviour
 
 Test classes
     SimpleTestCase - No DB
     TestCase - With DB
 
-## Mocking 
+## Mocking
     Override or change behaviour of dependencies
     Avoid unintended side effects
     Isolate code being tested
     Avoid relying on external services
     Avoid accidentally sending emails
 
-    Example 
+    Example
         register_user() - > user_in_db() ->send_welcome_email()
 
     speed up test
@@ -74,35 +74,35 @@ Test classes
 ### Django REST Framework APIClient
 
 
-Psycopg2 -> postgresql adapter for django 
+Psycopg2 -> postgresql adapter for django
 
 psycopg2-binary  : dev env only
 psycopg2 : compiles from source, requires additional dependencies, easy with docker
 
     C compiler
     python3-dev
-    libpq-dev 
+    libpq-dev
 
     Equivalent packages for alipine :
     postgresql-client
     build-base
     postgresql-dev
     musl-dev
-    
-## problrm with Docker compose depends_on 
-    Dosen't ensure that the application is running 
+
+## problrm with Docker compose depends_on
+    Dosen't ensure that the application is running
 
     docker-compose run --rm app sh -c "python manage.py startapp core"
 
-## Database Migrations 
+## Database Migrations
 
     Django ORM (Object Relational Mapper)
     Define Models -> Generate Migration files -> Setup Database -> Store Data
-    
+
     Model Contains :
-        Name 
-        Fields 
-        Other Metadata 
+        Name
+        Fields
+        Other Metadata
         Custom Python Code
 
     Ensure app id enabled in settings.py
@@ -111,3 +111,55 @@ psycopg2 : compiles from source, requires additional dependencies, easy with doc
 
     Apply migrations -> Django CLI -> python manage.py migrate
     Run it after waiting for databases
+
+## Django user Model
+
+    Django authentication
+    Default user model has some drawbacks (username instead of email, not easy to customize)
+
+    Create a custom model for new projects
+
+    Create model - >Base from AbstractBaseUser and PermissionsMixin
+    Create custom manager -> set AUTH_USER_MODEL in settings.py
+    create and run migrations
+
+    AbstractBaseUser -> Provides features for authentication , Dosen't include fields
+    PermissionsMixin -> Supports Django permissions system , Includes fields and methods
+
+    Avoid Common issues:
+        first create custom modesl then run migrations (clear migrations if already created)
+        check for typos in cofig settings.py
+        Indentation in Managaer and model
+
+## Design Custom user models
+
+    email
+    name
+    is_active
+    is_staff
+
+    User model manager :
+        USed to manage objects
+        Custom logic for creating objects
+            Hash password
+        Used by Django CLI
+            Create superuser
+
+    BaseUserManager
+        Base class for managing users
+        useful helper methods like : normalize_email
+        methods we'll use:
+            create_user
+            ceate_superuser
+
+
+docker-compose run --rm app sh -c "python manage.py makemigrations"
+docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
+
+docker volumne ls
+DRIVER    VOLUME NAME
+local     22c206499aaf54c40dfb04ee0a840819fccf7f7c57d695cc41c9a3acf95c7c3c
+local     037a0244ec3a3fe95c88fd9957e438627045adc71e1a61d0a282260228523889
+local     recipe-app-api_dev-db-data
+
+docker volume rm recipe-app-api_dev-db-data
