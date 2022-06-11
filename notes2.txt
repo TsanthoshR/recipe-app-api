@@ -1,0 +1,41 @@
+### API Documentation
+
+    Everything needed to use API
+    Available endpoints
+    Supported methods
+    Format of payloads
+        Parameter
+        Post JSON Format
+    Format of responses
+        Response JSON Format
+    Authentication process
+
+
+## options for documentation
+    Manual documentation
+        Word doc
+        Markdown
+
+    Automated documentation
+        Use metadata from code (comments)
+        Generate documentation pages
+
+## Tools for making documentaions seamless
+
+    Auto docs with DRF
+    drf-spectacular
+        Open API 3.0 std,
+            std, popular, supported by most api doc tools, uses popular formats : JSON/YAML
+        Generates Schema,
+        Browsable web interface
+        make test requests
+        Handle auth
+
+    - Generate "schema" files
+    - Parse schema into GUI
+
+## User API
+
+Handle User Registration
+Create Auth Token
+Viewing/Updating User Profile
