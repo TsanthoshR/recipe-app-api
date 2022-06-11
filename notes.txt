@@ -163,3 +163,20 @@ local     037a0244ec3a3fe95c88fd9957e438627045adc71e1a61d0a282260228523889
 local     recipe-app-api_dev-db-data
 
 docker volume rm recipe-app-api_dev-db-data
+
+docker-compose run --rm app sh -c "python manage.py createsuperuser"
+
+## Enable Django admin
+    Enable per model
+    inside admin.py
+
+    Customise :
+        create a class based on ModelAdmin or UserAdmin
+        Override/set class variables
+
+         ordering & list display
+
+         customize add/update page, fieldsets, readonlyfields
+         , add_fieldsets
+
+         
