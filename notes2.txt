@@ -39,3 +39,47 @@
 Handle User Registration
 Create Auth Token
 Viewing/Updating User Profile
+
+
+## Types of authentication
+
+    - Basic authentication
+        send username and password everytime , bad , need to store username and password,
+
+    Token authentication 👈🏽👈
+        Use a token in the HTTP header
+    JSON Web Token (JWT)
+        Use an access and refresh token
+    Session
+        Use cookies
+
+## How token auth works
+
+Create token(Post username/password) -> Store token on client ->Include token in HTTP headers
+                                    - Session storage
+                                    -Local storage
+                                    -Cookie
+                                    -Database
+
+# Pros and cons
+
+    -Supported out of the box
+    -Simple to use
+    -Supported by all clients
+    -Avoid sending username/password everytime
+Cons
+    Token needs to be secure
+    Requires database  requests
+
+## Logging out
+
+    Happens on the client side
+    Delete Token
+
+## Why no logout API?
+
+    Unreliable
+        - No gurantee it will be called
+    Not useful on API
+
+
